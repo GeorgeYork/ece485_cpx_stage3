@@ -35,16 +35,18 @@ begin
                 end if;                   
             when "1100011" => -- BNE
                 if instr(31) = '0' then  -- positive
-                    imm <= "000000000000000000000" & instr(7) &  instr(30 downto 25) & instr(11 downto 8); -- byte addressable, not word
+                    -- imm math points to a word, not a byte or 16-bit
+                    imm <= "000000000000000000" & instr(31) & instr(7) &  instr(30 downto 25) & instr(11 downto 8) & "00"; 
                 else -- negative
-                    imm <= "111111111111111111111" & instr(7) &  instr(30 downto 25) & instr(11 downto 8); -- byte addressable, not word
-                end if;               
+                    imm <= "111111111111111111" & instr(31) & instr(7) &  instr(30 downto 25) & instr(11 downto 8) & "00";
+                end if;                
             when "1101111" => -- J
+                -- imm math points to a word, not a byte of 16-bit
                 if instr(31) = '0' then  -- positive
-                    imm <= "000000000000" & instr(31) & instr(19 downto 12) & instr(20) & instr(30 downto 21);
+                    imm <= "0000000000" & instr(31) & instr(19 downto 12) & instr(20) & instr(30 downto 21) & "00";
                 else -- negative
-                    imm <= "111111111111" & instr(31) & instr(19 downto 12) & instr(20) & instr(30 downto 21);
-                end if;          
+                    imm <= "1111111111" & instr(31) & instr(19 downto 12) & instr(20) & instr(30 downto 21) & "00";
+                end if;        
             when others =>
                 imm <= (others => '0');
         end case;
