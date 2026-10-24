@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Mar 10 10:53:14 2026
+# Process ID: 8244
+# Current directory: C:/Users/george.york/Documents/ECE485_code/ece485_finalproject_stage3
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22856 C:\Users\george.york\Documents\ECE485_code\ece485_finalproject_stage3\ece485_finalproject_stage3.xpr
+# Log file: C:/Users/george.york/Documents/ECE485_code/ece485_finalproject_stage3/vivado.log
+# Journal file: C:/Users/george.york/Documents/ECE485_code/ece485_finalproject_stage3\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/george.york/Documents/ECE485_code/ece485_finalproject_stage3/ece485_finalproject_stage3.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/george.york/Documents/ECE485_code/ece485_finalproject_stage3/tb_riscv_pipeline_behav.wcfg
+source tb_riscv_pipeline.tcl
+run 1000 ns
+save_wave_config {C:/Users/george.york/Documents/ECE485_code/ece485_finalproject_stage3/tb_riscv_pipeline_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/george.york/Documents/ECE485_code/ece485_finalproject_stage3/tb_riscv_pipeline_behav.wcfg
+source tb_riscv_pipeline.tcl
+current_wave_config {tb_riscv_pipeline_behav.wcfg}
+add_wave {{/tb_riscv_pipeline/uut/not_equal_flag}} 
+save_wave_config {C:/Users/george.york/Documents/ECE485_code/ece485_finalproject_stage3/tb_riscv_pipeline_behav.wcfg}
+save_wave_config {C:/Users/george.york/Documents/ECE485_code/ece485_finalproject_stage3/tb_riscv_pipeline_behav.wcfg}
+run 1000 ns
+close_sim
